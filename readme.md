@@ -21,7 +21,7 @@ Installs the **code2html** dependencies **Flask** and **Pygments**. For this ste
 
     $ source bin/activate
 
-Activates `virtualenv` for the project; this step is necessary since the previous step one has installed our dependencies into a virtual environment.
+Activates `virtualenv` for the project; this step is necessary since the previous one has installed our dependencies into a virtual environment.
 
     $ ./code2html.py
 
