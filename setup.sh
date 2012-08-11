@@ -4,7 +4,7 @@
 ###############################################################################
 
 ACTMETH=${1}
-APPNAME=${2-"flask-prj"}
+APPNAME=${2-"code2html"}
 OPTIONS=${3-""}
 
 ###############################################################################
@@ -12,9 +12,6 @@ OPTIONS=${3-""}
 
 function pipit () {
     pip install $1 Flask
-    pip install $1 Flask-SQLAlchemy
-    pip install $1 flask-debugtoolbar
-    pip install $1 ipython
 }
 
 ###############################################################################
