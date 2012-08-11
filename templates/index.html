@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>code2html - view source file in tab</title>
+    <meta name="keywords" content="{{ keywords }}"/>
+    <meda name="description" content="{{ description }}"/>
+</head>
+<body>
+
+    <h1>Code-to-HTML</h1>
+    <p>Click on one of the following links and the file will be opened in a new tab showing the corresponding source file (with syntax highlighting). This example has been written to demonstrate a possible solution to <em>my source files are not opened in their own tabs</em> dilemma.</p>
+
+    <h2>Pre-converted</h2>
+    <p>These source files have been pre-converted to HTML using:</p>
+    <p style="text-align: center;">
+        <strong>pygmentize</strong> -f html -O full -o cpp-source.html source.cpp
+    </p>
+    <ul>
+        <li><a target="_blank" href="/pre/cpp-source.html">source.cpp</a></li>
+        <li><a target="_blank" href="/pre/c-source.html">source.c</a></li>
+    </ul>
+
+    <h2>On the fly</h2>
+    <p>These source files are converted (by the backend) on the fly to HTML:</p>
+    <ul>
+        <li><a target="_blank" href="/fly/cpp-source.html">source.cpp</a></li>
+        <li><a target="_blank" href="/fly/c-source.html">source.c</a></li>
+        <li><a target="_blank" href="/fly/h-source.html">source.h</a></li>
+    </ul>
+</body>
+</html>

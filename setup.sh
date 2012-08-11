@@ -12,6 +12,7 @@ OPTIONS=${3-""}
 
 function pipit () {
     pip install $1 Flask
+    pip install $1 Pygments
 }
 
 ###############################################################################
