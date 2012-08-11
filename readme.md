@@ -1,26 +1,8 @@
-flask-prj
+code2html
 =========
 
-Sets a basic development environment for [flask](http://flask.pocoo.org) up
-using [virtualenv](http://virtualenv.org). After cloning the repository just
-execute
+If people want to show a source file in a new tab, it usually works for text files. But if *cpp*, *h* files or like are involved then those are offered as a download. One possible solution to this problem is to convert those source files to HTML using tools like pygments: E.g.
 
-    ./setup.sh $PRJNAME
+  ```pygmentize -f html -O full -o cpp-source.html source.cpp```
 
-where $PRJNAME should be the name of your project. The `pipit` function inside
-`setup.sh` should be extended with the dependencies you require. If you need to
-update your dependencies then execute
-
-    ./setup.sh $PRJNAME --upgrade
-
-and all your dependencies will be upgraded (using `pip install --upgrade`). If
-you need to get rid of your virtual enviroment then execute
-
-    ./setup.sh clear.
-
-After cloning this repository and executing `./setup.sh $PRJNAME` the `origin`
-remote of the git repository should be removed with
-
-    git remote rm origin
-
-and probably replaced with a URL of your own liking.
+This will create an HTML file `cpp-source.html` from `source.cpp`, where the latter can then be served with whatever method.
