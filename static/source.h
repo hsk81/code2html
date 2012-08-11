@@ -2,7 +2,7 @@
 #define SOURCE_H
 
 /**
- * empty header file
+ * empty header
  */
 
 #endif

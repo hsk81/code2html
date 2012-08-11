@@ -1,32 +1,57 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 
 <html>
 <head>
-    <title>code2html - view source file in tab</title>
-    <meta name="keywords" content="{{ keywords }}"/>
-    <meda name="description" content="{{ description }}"/>
+    <meta charset="utf-8">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="description" content="{{ description }}">
+    <title>Code-to-HTML - One tab per source file</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='base.css') }}">
+    <script type='text/javascript' src="{{ url_for ('static', filename='scripts/shCore.js') }}" ></script>
+    <script type='text/javascript' src="{{ url_for ('static', filename='scripts/shBrushBash.js') }}" ></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='styles/shCoreDefault.css') }}">
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
 
-    <h1>Code-to-HTML</h1>
-    <p>Click on one of the following links and the file will be opened in a new tab showing the corresponding source file (with syntax highlighting). This example has been written to demonstrate a possible solution to <em>my source files are not opened in their own tabs</em> dilemma.</p>
+<div id="container">
+    <div id="header">
+        <h1>Code-to-HTML</h1>
+        <p>How do you open a new tab for files like *.cpp or *.h?</p>
+    </div>
 
-    <h2>Pre-converted</h2>
-    <p>These source files have been pre-converted to HTML using:</p>
-    <p style="text-align: center;">
-        <strong>pygmentize</strong> -f html -O full -o cpp-source.html source.cpp
-    </p>
-    <ul>
-        <li><a target="_blank" href="/pre/cpp-source.html">source.cpp</a></li>
-        <li><a target="_blank" href="/pre/c-source.html">source.c</a></li>
-    </ul>
+    <div id="content">
+        <p>Have you ever tried to click on a *.txt file inside a browser? You'll have noticed that the browser will open the file inside a new tab (at least when you <em>middle</em> click on it). Well, have you tried the same action with <strong>*.cpp</strong>, <strong>*.h</strong>, or any other source files?</p>
 
-    <h2>On the fly</h2>
-    <p>These source files are converted (by the backend) on the fly to HTML:</p>
-    <ul>
-        <li><a target="_blank" href="/fly/cpp-source.html">source.cpp</a></li>
-        <li><a target="_blank" href="/fly/c-source.html">source.c</a></li>
-        <li><a target="_blank" href="/fly/h-source.html">source.h</a></li>
-    </ul>
+        <p>I'm not sure if you've ever tried this, but if that was the case, then for sure you'll have noticed that the browser this time does <em>not</em> conveniently open a new tab and show the file to you, but it offers the latter as a <em>downloadable</em> file. Depending on the situation this might be exactly what you want. But what if you'd still prefer a tab for such files? How would you handle that?</p>
+
+        <p>One possible solution is to convert these files to HTML and serve them; then the browser will open these for sure in their own tabs. And their is a very nice tool that can be handy for that task: <a href="http://pygments.org/">pygments.org</a>. If you've installed it you execute the following command:</p>
+
+        <pre class="brush: bash">pygmentize -f html -O full -o "cpp-source.html" "source.cpp"</pre>
+
+        <p>It will take the <strong>source.cpp</strong> file and generate the <strong>cpp-source.html</strong> HTML file. Below this has been done for one <strong>*.cpp</strong> and one <strong>*.h</strong> file: Click on the links and the file will be opened in a new tab showing the corresponding source with even proper syntax highlighting.</p>
+
+        <h2>Pre-converted</h2>
+        <p>These source files have been pre-converted to HTML:</p>
+        <ul>
+            <li><a target="_blank" href="/pre/cpp-source.html">source.cpp</a></li>
+            <li><a target="_blank" href="/pre/c-source.html">source.c</a></li>
+        </ul>
+        <h2>On the fly</h2>
+        <p>These source files are converted on the fly to HTML:</p>
+        <ul>
+            <li><a target="_blank" href="/fly/cpp-source.html">source.cpp</a></li>
+            <li><a target="_blank" href="/fly/c-source.html">source.c</a></li>
+            <li><a target="_blank" href="/fly/h-source.html">source.h</a></li>
+        </ul>
+
+        <h2>Source Files</h2>
+        <p>The source of this site (with the corresponding on-the-fly code-to-HTML converter) can be found at <a href="http://github.com/hsk81/code2html">http://github.com/hsk81/code2html</a>. The back-end has been written with the microframework <a href="flask.pocoo.org">Flask</a> and the front-end is simple <a href="http://www.w3schools.com/html/default.asp">HTML</a>.</p>
+    </div>
+
+    <div id="footer">
+        <p style="text-align: center;">«©»</p>
+    </div>
+</div>
 </body>
 </html>

@@ -11,14 +11,12 @@ app = Flask (__name__)
 ###############################################################################
 
 @app.route("/")
-def hello ():
+def index ():
 
     return render_template ('index.html',
         keywords = 'new tab, source, code, pygments',
-        description = 'Demonstrates a possible solution to opening source ' +
-            'files in their own tabs.',
-        debug = app.debug
-    )
+        description = 'Show source file in their own tabs',
+        debug = app.debug)
 
 @app.route("/pre/<ext>-source.html")
 def pre_source (ext):
