@@ -3,8 +3,10 @@
 
 from flask import Flask
 from flask import render_template
+from celery import Celery
 
-import subprocess
+import time
+import tasks
 
 ###############################################################################
 app = Flask (__name__)
@@ -21,7 +23,7 @@ def index ():
 @app.route("/pre/<ext>-source.html")
 def pre_source (ext):
 
-    if not security_check (ext):
+    if not tasks.security_check (ext):
         return "invalid extension"
 
     return render_template ('pre/%s-source.html' % ext)
@@ -29,25 +31,15 @@ def pre_source (ext):
 @app.route("/fly/<ext>-source.html")
 def fly_source (ext):
 
-    if not security_check (ext):
-        return "invalid extension"
+    asr = tasks.convert.delay (ext)
+    while not asr.ready ():
 
-    with open ('stdout.log', 'w') as stdout:
-        with open ('stderr.log', 'w') as stderr:
+        time.sleep (0.005)
 
-            subprocess.check_call ([
-                'pygmentize','-f', 'html','-O', 'full',
-                '-o', 'templates/fly/%s-source.html' % ext,
-                'static/source.%s' % ext
-            ], stdout=stdout, stderr=stderr)
-
-    return render_template ('fly/%s-source.html' % ext)
-
-def security_check (ext):
-    return ext.lower () in ['c','cpp', 'h']
+    return render_template (asr.result)
 
 ###############################################################################
 if __name__ == "__main__":
 ###############################################################################
 
-    app.run (host='0.0.0.0', port=5001, debug=False)
+    app.run (host='0.0.0.0', port=5001, debug=True)
