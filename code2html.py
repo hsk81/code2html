@@ -21,7 +21,7 @@ def hello ():
     )
 
 @app.route("/pre/<ext>-source.html")
-def source (ext):
+def pre_source (ext):
 
     if not security_check (ext):
         return "invalid extension"
