@@ -25,6 +25,6 @@ Activates `virtualenv` for the project; this step is necessary since the previou
 
     $ ./code2html.py
 
-Executes the **code2html** web application; you should see an output like `* Running on http://127.0.0.1:5000/`. Point your browser to the address and play around with the demonstration.
+Executes the **code2html** web application; you should see an output like `running on http://0.0.0.0:5001/`. Point your browser to the address and play around with the demonstration.
 
 After you're done with the demonstration hit **CTRL+C** to kill **code2html** and run `deactivate` to exit the virtual environment.
