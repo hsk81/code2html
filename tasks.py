@@ -14,16 +14,17 @@ def convert (ext):
     if not security_check (ext):
         return "invalid extension"
 
+    source = 'static/source.%s' % ext
+    target = 'fly/%s-source.html' % ext
+
     with open ('stdout.log', 'w') as stdout:
         with open ('stderr.log', 'w') as stderr:
 
-            subprocess.check_call ([
-                'pygmentize','-f', 'html','-O', 'full',
-                '-o', 'templates/fly/%s-source.html' % ext,
-                'static/source.%s' % ext
+            subprocess.check_call (['pygmentize',
+                '-f', 'html','-O', 'full', '-o', 'templates/' + target, source
             ], stdout=stdout, stderr=stderr)
 
-    return 'fly/%s-source.html' % ext
+    return target
 
 def security_check (ext):
 
