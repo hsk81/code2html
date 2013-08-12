@@ -29,6 +29,6 @@ Executes the **code2html** web application; you should see an output like `runni
 
 The *pre-converted* examples should just work, but for the *on-the-fly* examples to deliver anything you need to activate a [Celery](http://www.celeryproject.org/) worker by executing additionally the following command in a second terminal:
 
-    $ source bin/activate && celery worker --app=tasks
+    $ source bin/activate && celery worker --app=tasks ## requires a `redis` instance running!
 
 After you're done with the demonstration hit **CTRL+C** and run `deactivate` to exit the virtual environment.
