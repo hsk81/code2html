@@ -1,7 +1,7 @@
 code2html
 =========
 
-If people want to show a source file in a new tab, it usually works for text files. But if **CPP**, **H** files or like are involved then those are offered as a download! One possible solution to this problem is to convert those source files to HTML using tools like [pygments](http://pygments.org/faq/), which allows you a conversion like:
+If people want to show a source file in a new browser tab, it usually works for text files. But if **CPP**, **H** files or like are involved then those are offered as a download! One possible solution to this problem is to convert those source files to HTML using tools like [pygments](http://pygments.org/faq/), which allows you a conversion like:
 
 * `pygmentize -f html -O full -o cpp-source.html source.cpp`
 
