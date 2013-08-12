@@ -5,7 +5,7 @@ If people want to show a source file in a new tab, it usually works for text fil
 
 * `pygmentize -f html -O full -o cpp-source.html source.cpp`
 
-This will create an HTML file *cpp-source.html* from *source.cpp*, where the latter can then be served with whatever method. **code2html** is a small web application demonstrating this approach; follow the instructions below the get it running:
+This will create an HTML file *cpp-source.html* from *source.cpp*, where the latter can then be served with whatever method. **code2html** is a small web application demonstrating this approach; follow the instructions below to get it running:
 
     $ git clone git://github.com/hsk81/code2html.git code2html.git
 
@@ -15,7 +15,7 @@ Clones the GIT repository **code2html** from GitHub; you'll only have read acces
 
 Switches to the repository folder *code2html.git*, which has been created at the first step.
 
-    $ ./setup.sh
+    $ ./setup.sh ## requires `virtualenv` for Python 2.x!
 
 Installs the **code2html** dependencies **Flask** and **Pygments**. For this step to work you need a `python` interpreter with the `virtualenv` environment builder properly set-up.
 
