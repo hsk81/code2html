@@ -31,4 +31,4 @@ The *pre-converted* examples should just work, but for the *on-the-fly* examples
 
     $ source bin/activate && celery worker --app=tasks
 
-After you're done with the demonstration hit **CTRL+C** to kill **code2html** and run `deactivate` to exit the virtual environment.
+After you're done with the demonstration hit **CTRL+C** and run `deactivate` to exit the virtual environment.
