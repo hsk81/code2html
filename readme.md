@@ -27,4 +27,8 @@ Activates `virtualenv` for the project; this step is necessary since the previou
 
 Executes the **code2html** web application; you should see an output like `running on http://0.0.0.0:5001/`. Point your browser to the address and play around with the demonstration.
 
+The *pre-converted* examples should just work, but for the *on-the-fly* examples to deliver anything you need to activate a [Celery](http://www.celeryproject.org/) worker by executing additionally the following command in a second terminal:
+
+    $ source bin/activate && celery worker --app=tasks
+
 After you're done with the demonstration hit **CTRL+C** to kill **code2html** and run `deactivate` to exit the virtual environment.
